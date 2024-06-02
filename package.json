@@ -1,0 +1,28 @@
+{
+  "name": "estudo-dirigido-nodejs-express",
+  "version": "1.0.0",
+  "description": "Guia de desenvolvimento de um CRUD utilizando o framework Express.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/italomaia03/crud-express.git"
+  },
+  "keywords": [
+    "crud",
+    "express",
+    "nodejs"
+  ],
+  "author": "Ítalo Maia, Francisco Eliésio, Gustavo Pereira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/italomaia03/crud-express/issues"
+  },
+  "homepage": "https://github.com/italomaia03/crud-express#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
