@@ -15,6 +15,18 @@ app.get("/users", (req, res) => {
 });
 
 // Implemente outras rotas para criar, atualizar e excluir usuários
+app.post('/users', (req, res) => {
+
+})
+
+app.put('/users/:id', (req, res) => {
+
+})
+
+app.delete('/user/:id', (req, res) => {
+
+})
+
 
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`);
