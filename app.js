@@ -31,7 +31,7 @@ app.get('/users/:id', (req, res) => {
 
 // Implemente outras rotas para criar, atualizar e excluir usuários
 app.post('/users', (req, res) => {
-  users.push(req.bory);
+  users.push(req.body);
   res.status(201).send('Usuário dacastrado com sucesso!')
 })
 
