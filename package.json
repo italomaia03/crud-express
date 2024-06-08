@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/italomaia03/crud-express#readme",
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "zod": "^3.23.8"
   }
 }
