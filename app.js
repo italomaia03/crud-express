@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const port = 3030;
 
+app.use(express.json())
+
 // Rota principal para a página inicial
 app.get("/", (req, res) => {
   // Envie uma página HTML como resposta
