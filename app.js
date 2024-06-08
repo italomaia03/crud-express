@@ -23,20 +23,13 @@ app.get("/", (req, res) => {
 // Rota GET para CRUD de usuários (ainda sem implementação)
 app.get("/users", (req, res) => {
   // Implemente a lógica para buscar usuários
-  res.json(getAllUsers());
-  res.status(200).send();
+  res.status(200).json({ users: getAllUsers() });
 });
-
-app.get('/users/:id', (req, res) => {
-  res.json(searchUsersForID(req.params.id));
-})
-
 
 // Implemente outras rotas para criar, atualizar e excluir usuários
 
 app.post('/users', (req, res) => {
-  users.push(req.bory);
-  res.status(201).send('Usuário dacastrado com sucesso!')
+
 })
 
 app.put('/users/:id', (req, res) => {
