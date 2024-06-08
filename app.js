@@ -4,16 +4,6 @@ const port = 3030;
 
 app.use(express.json())
 
-let users = [
-  {
-    id: 1,
-    name: "João da Silva",
-    email: "joao@ufca.edu.br",
-    age: 30,
-    gender: "male",
-  },
-];
-
 // Rota principal para a página inicial
 app.get("/", (req, res) => {
   // Envie uma página HTML como resposta
@@ -37,14 +27,30 @@ app.put('/users/:id', (req, res) => {
 })
 
 app.delete("/users/:id", (req, res) => {
-  identification = parseInt(req.params.id);
-  deleteUserById(identification);
-  res.status(204).send("Usuario deletado com sucesso!!")
+  const identification = parseInt(req.params.id);
+  const existingUser = users.find(user => user.id === identification);
+
+  if (existingUser) {
+    deleteUserById(identification);
+    res.status(204).send()
+  } else {
+    res.status(404).send(`Usuário com ID ${identification} não encontrado.`);
+  }
 })
 
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`);
 });
+
+let users = [
+  {
+    id: 1,
+    name: "João da Silva",
+    email: "joao@ufca.edu.br",
+    age: 30,
+    gender: "male",
+  },
+];
 
 const getAllUsers = () => users;
 
