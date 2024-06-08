@@ -15,7 +15,7 @@ app.get("/users", (req, res) => {
 });
 
 // Implemente outras rotas para criar, atualizar e excluir usuários
-app.push("/users", (req, res) =>{
+app.post("/users", (req, res) =>{
 
 })
 
