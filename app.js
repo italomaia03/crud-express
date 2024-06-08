@@ -8,22 +8,31 @@ app.get("/", (req, res) => {
   res.send("<html><body><h1>Página Inicial</h1></body></html>");
 });
 
-// Rota GET para CRUD de usuários (ainda sem implementação)
+// Rota GET para CRUD de usuários
 app.get("/users", (req, res) => {
-  // Implemente a lógica para buscar usuários
-  res.send("Lista de Usuários");
+  res.status(200).json({ users: getAllUsers() });
 });
 
 // Implemente outras rotas para criar, atualizar e excluir usuários
-app.post("/users", (req, res) =>{
-
-})
-
-app.put("/users", (req, res) =>{
+app.post("/users", (req, res) => {
   
 })
 
-app.delete("/users", (req, res) =>{
+app.put("/users/:id", (req, res) => {
+  const userId = parseInt(req.params.id);
+  const updatedUser = req.body;
+
+  const existingUser = users.find(user => user.id === userId);
+
+  if (existingUser) {
+    updateUserById(userId, updatedUser);
+    res.status(200).send(`Usuário com ID ${userId} atualizado com sucesso.`);
+  } else {
+    res.status(404).send(`Usuário com ID ${userId} não encontrado.`);
+  }
+});
+
+app.delete("/users/:id", (req, res) =>{
   
 })
 
