@@ -11,13 +11,38 @@ app.get("/", (req, res) => {
   res.send("<html><body><h1>Página Inicial</h1></body></html>");
 });
 
-// Rota GET para CRUD de usuários (ainda sem implementação)
+// Rota GET para CRUD de usuários
 app.get("/users", (req, res) => {
   // Implemente a lógica para buscar usuários
   res.status(200).json({ users: getAllUsers() });
 });
 
 // Implemente outras rotas para criar, atualizar e excluir usuários
+app.put("/users/:id", (req, res) => {
+  const userId = parseInt(req.params.id);
+  const updatedUser = req.body;
+
+  const existingUser = users.find((user) => user.id === userId);
+
+  if (existingUser) {
+    updateUserById(userId, updatedUser);
+    res.status(200).send(`Usuário com ID ${userId} atualizado com sucesso.`);
+  } else {
+    res.status(404).send(`Usuário com ID ${userId} não encontrado.`);
+  }
+});
+
+app.delete("/users/:id", (req, res) => {
+  const identification = parseInt(req.params.id);
+  const existingUser = users.find((user) => user.id === identification);
+
+  if (existingUser) {
+    deleteUserById(identification);
+    res.status(204).send();
+  } else {
+    res.status(404).send(`Usuário com ID ${identification} não encontrado.`);
+  }
+});
 
 // Rota de criação com método POST
 app.post("/users", (req, res) => {
