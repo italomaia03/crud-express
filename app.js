@@ -40,6 +40,26 @@ app.delete("/users/:id", (req, res) =>{
 
 
 
+app.post('/users', (req, res) => {
+
+})
+
+app.put('/users/:id', (req, res) => {
+
+})
+
+app.delete("/users/:id", (req, res) => {
+  const identification = parseInt(req.params.id);
+  const existingUser = users.find(user => user.id === identification);
+
+  if (existingUser) {
+    deleteUserById(identification);
+    res.status(204).send()
+  } else {
+    res.status(404).send(`Usuário com ID ${identification} não encontrado.`);
+  }
+})
+
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`);
 });
@@ -68,3 +88,4 @@ const updateUserById = (userId, newUser) => {
 const deleteUserById = (userId) => {
   users = users.filter((user) => user.id !== userId);
 };
+
